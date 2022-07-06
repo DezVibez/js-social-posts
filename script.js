@@ -19,58 +19,49 @@ console.log("js ok")
 //array di oggetti
 const data = [{postId: 1,
             nomeAutore: "Phil Mangione",
-            fotoSrcAutore: "https://picsum.photos/200",
+            fotoSrcAutore: "https://unsplash.it/300/300?image=3",
             dataPost: "07/06/2022",
             testoPost: "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto.",
-            fotoSrcPost: "https://picsum.photos/200",
+            fotoSrcPost: "https://unsplash.it/300/300?image=3",
             likes: 28}]
 
 const printPlace = document.getElementById("container")
 
 
-//creo una funzione stampa carte 
 
-function getPost(){
-
-
+for (let i = 0; i< data.length; i++) {
+    
     printPlace.innerHTML = `<div class="post">
     <div class="post__header">
       <div class="post-meta">
         <div class="post-meta__icon">
-          <img class="profile-pic" src=${data.fotoSrcAutore} alt="${data.nomeAutore}" />
+          <img class="profile-pic" src="${data[i].fotoSrcAutore}" alt="${data.nomeAutore}" />
         </div>
         <div class="post-meta__data">
-          <div class="post-meta__author">${data.postId}</div>
-          <div class="post-meta__time">${data.dataPost}</div>
+          <div class="post-meta__author">${data[i].postId}</div>
+          <div class="post-meta__time">${data[i].dataPost}</div>
         </div>
       </div>
     </div>
     <div class="post__text">
-    ${data.testoPost}
+    ${data[i].testoPost}
     </div>
     <div class="post__image">
-      <img src=${data.fotoSrcPost} alt="" />
+      <img src="${data[i].fotoSrcPost}" alt="" />
     </div>
     <div class="post__footer">
       <div class="likes js-likes">
         <div class="likes__cta">
-          <a class="like-button js-like-button" href="#" data-postid="${data.postId}">
+          <a class="like-button js-like-button" href="#" data-postid="${data[i].postId}">
             <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
             <span class="like-button__label">Mi Piace</span>
           </a>
         </div>
-        <div class="likes__counter">Piace a <b id="like-counter-1" class="js-likes-counter">${data.likes}</b> persone</div>
+        <div class="likes__counter">Piace a <b id="like-counter-1" class="js-likes-counter">${data[i].likes}</b> persone</div>
       </div>
     </div>
   </div>`
-
-  return 
-
 }
-
-getPost()
-
-
 
 console.log(data)
 
