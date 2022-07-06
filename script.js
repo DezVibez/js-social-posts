@@ -25,7 +25,7 @@ const data = [{postId: 1,
             fotoSrcPost: "https://unsplash.it/300/300?image=3",
             likes: 28}]
 
-//Assegnazioni
+//targettizzo punto di stampa
 const printPlace = document.getElementById("container")
 
 
@@ -64,10 +64,13 @@ for (let i = 0; i< data.length; i++) {
     </div>
   </div>`
 
-const miPiace = document.getElementById("bottone")
-const likesCounter = document.getElementById("like-counter-1")
+//targettizzo bottone e counter
+    const miPiace = document.getElementById("bottone")
+    const likesCounter = document.getElementById("like-counter-1")
 
-  miPiace.addEventListener("click", function(){
+
+//incrementa counter e aggiungi classe bootstrap al bottone al click
+    miPiace.addEventListener("click", function(){
     this.classList.add("text-bg-primary")
     likesCounter.innerText = data[i].likes + 1})
 }
