@@ -25,12 +25,14 @@ const data = [{postId: 1,
             fotoSrcPost: "https://unsplash.it/300/300?image=3",
             likes: 28}]
 
+//Assegnazioni
 const printPlace = document.getElementById("container")
 
 
 
-for (let i = 0; i< data.length; i++) {
-    
+//controllo nell'array, e stampo in pagina la struttura html data
+for (let i = 0; i< data.length; i++) { 
+
     printPlace.innerHTML = `<div class="post">
     <div class="post__header">
       <div class="post-meta">
@@ -38,7 +40,7 @@ for (let i = 0; i< data.length; i++) {
           <img class="profile-pic" src="${data[i].fotoSrcAutore}" alt="${data.nomeAutore}" />
         </div>
         <div class="post-meta__data">
-          <div class="post-meta__author">${data[i].postId}</div>
+          <div class="post-meta__author">${data[i].nomeAutore}</div>
           <div class="post-meta__time">${data[i].dataPost}</div>
         </div>
       </div>
@@ -51,7 +53,7 @@ for (let i = 0; i< data.length; i++) {
     </div>
     <div class="post__footer">
       <div class="likes js-likes">
-        <div class="likes__cta">
+        <div id="bottone"class="likes__cta">
           <a class="like-button js-like-button" href="#" data-postid="${data[i].postId}">
             <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
             <span class="like-button__label">Mi Piace</span>
@@ -61,9 +63,21 @@ for (let i = 0; i< data.length; i++) {
       </div>
     </div>
   </div>`
+
+const miPiace = document.getElementById("bottone")
+const likesCounter = document.getElementById("like-counter-1")
+
+  miPiace.addEventListener("click", function(){
+    this.classList.add("text-bg-primary")
+    likesCounter.innerText = data[i].likes + 1})
 }
 
-console.log(data)
+  
+
+
+
+
+
 
 
 
